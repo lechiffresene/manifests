@@ -54,7 +54,7 @@ env:
     value: odoo
 persistence:
   enabled: true
-  storageClass: efs
+  storageClass: csi-cinder-high-speed
   accessMode: ReadWriteOnce
   size: 1Gi
   mounthPath: /home/odoo_filestore
