@@ -1,0 +1,63 @@
+replicaCount: 1
+namespace: default
+image:
+  repository: alune/auguria
+  tag: d5aad59
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: registry-secret
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout	: "1800"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  hosts:
+    - host: alioune-baamtu-sn.fun
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: odoo-erp-tls
+      hosts: 
+        - alioune-baamtu-sn.fun
+resources:
+  {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env:
+  - name: HOST
+    value: my-postgres-postgresql.default.svc.cluster.local
+  - name: PASSWORD
+    valueFrom:
+      secretKeyRef:
+        key: db_password
+        name: odoo-si-secret
+  - name: PORT
+    value: "5432"
+  - name: USER
+    value: odoo
+persistence:
+  enabled: true
+  storageClass: efs
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  mounthPath: /home/odoo_filestore
+  hostPath: /
+  existingClaim: erp-si-odoo
+
