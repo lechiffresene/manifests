@@ -60,4 +60,6 @@ persistence:
   mounthPath: /home/odoo_filestore
   hostPath: /
   existingClaim: erp-si-odoo
+serviceAccount:
+  create: true
 
