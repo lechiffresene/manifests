@@ -51,7 +51,7 @@ env:
   - name: PORT
     value: "5432"
   - name: USER
-    value: odoo
+    value: postgres
 persistence:
   enabled: true
   storageClass: csi-cinder-high-speed
