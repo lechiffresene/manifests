@@ -41,16 +41,16 @@ tolerations: []
 affinity: {}
 
 env:
-  - name: HOST
+  - name: DB_HOST
     value: postgres-service.pgo.svc.cluster.local
-  - name: PASSWORD
+  - name: POSTGRES_PASSWORD
     valueFrom:
       secretKeyRef:
         key: db_password
         name: odoo-si-secret
-  - name: PORT
+  - name: DB_PORT_5432_TCP_PORT
     value: "5432"
-  - name: USER
+  - name:  DB_ENV_POSTGRES_USER
     value: odoo
 persistence:
   enabled: true
