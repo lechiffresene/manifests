@@ -1,5 +1,5 @@
 replicaCount: 1
-namespace: default
+namespace: illedevelop
 image:
   repository: cdelambert/odoo-auguria
   tag: 2f0f658
