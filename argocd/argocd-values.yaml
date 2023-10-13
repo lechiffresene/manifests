@@ -4,6 +4,7 @@ image:
   repository: cdelambert/odoo-auguria
   tag: 2f0f658
   pullPolicy: Always
+  containerPort: 8069
 
 imagePullSecrets:
   - name: registry-secret
@@ -42,11 +43,11 @@ affinity: {}
 
 env:
   - name: DB_HOST
-    value: latdior.databases.svc.cluster.local
-  - name: POSTGRES_PASSWORD
+    value: postgres-service.databases.svc.cluster.local
+  #- name: POSTGRES_PASSWORD
     valueFrom:
       secretKeyRef:
-        key: db_password
+        #key: db_password
         name: odoo-si-secret
   - name: DB_PORT_5432_TCP_PORT
     value: "5432"
