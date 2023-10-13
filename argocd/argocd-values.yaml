@@ -43,7 +43,7 @@ affinity: {}
 
 env:
   - name: DB_HOST
-    value: postgres-service.databases.svc.cluster.local
+    value: latdior.pgo.svc.cluster.local
   #- name: POSTGRES_PASSWORD
     valueFrom:
       secretKeyRef:
