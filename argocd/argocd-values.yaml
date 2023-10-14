@@ -42,17 +42,18 @@ tolerations: []
 affinity: {}
 
 env:
-  - name: DB_HOST
-    value: latdior.pgo.svc.cluster.local
-  #- name: POSTGRES_PASSWORD
+  - name: HOST
+    value: postgres-service.databases.svc.cluster.local
+  - name: PASSWORD
     valueFrom:
       secretKeyRef:
-        #key: db_password
+        key: db_password
         name: odoo-si-secret
-  - name: DB_PORT_5432_TCP_PORT
+  - name: PORT
     value: "5432"
-  - name:  DB_ENV_POSTGRES_USER
+  - name: USER
     value: odoo
+
 persistence:
   enabled: true
   storageClass: csi-cinder-high-speed
