@@ -1,8 +1,10 @@
 replicaCount: 1
 namespace: illedevelop
 image:
-  repository: cdelambert/odoo-auguria
-  tag: 2f0f658
+  #repository: cdelambert/odoo-auguria
+  repository: odoo
+  #tag: 2f0f658
+  tag: 16
   pullPolicy: Always
   containerPort: 8069
 
