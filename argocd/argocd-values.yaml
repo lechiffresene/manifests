@@ -1,10 +1,8 @@
 replicaCount: 1
 namespace: illedevelop
 image:
-  #repository: cdelambert/odoo-auguria
-  repository: odoo
-  #tag: 2f0f658
-  tag: 16
+  repository: cdelambert/odoo-auguria
+  tag: 2f0f658
   pullPolicy: Always
   containerPort: 8069
 
@@ -45,7 +43,7 @@ affinity: {}
 
 env:
   - name: HOST
-    value: latdior.databases.svc.cluster.local
+    value: latdior.pgo.svc.cluster.local
   - name: PASSWORD
     valueFrom:
       secretKeyRef:
