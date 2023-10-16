@@ -60,6 +60,6 @@ persistence:
   storageClass: csi-cinder-high-speed
   accessMode: ReadWriteOnce
   size: 1Gi
-  mounthPath: /home/odoo_filestore
+  mountPath: /home/odoo_filestore
   hostPath: /
   existingClaim: erp-odoo
